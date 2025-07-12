@@ -1,0 +1,77 @@
+# ================================
+# General
+# ================================
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# ================================
+# C / C++
+# ================================
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.exe
+*.dll
+*.dSYM/
+*.elf
+
+# Build directories
+/build/
+/bin/
+/obj/
+/dist/
+
+# ================================
+# Python
+# ================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.venv
+venv/
+env/
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ================================
+# Java
+# ================================
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse/IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+.project
+.classpath
+.settings/
+
+# ================================
+# OS-Specific
+# ================================
+.DS_Store
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# ================================
+# Misc
+# ================================
+*.bak
+*.old
+*.orig
+*.rej
