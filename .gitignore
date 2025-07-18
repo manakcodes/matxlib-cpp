@@ -75,3 +75,4 @@ Desktop.ini
 *.old
 *.orig
 *.rej
+.vscode
