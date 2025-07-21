@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <cfloat>
 #include <cstdlib>
+#include <string>
 
 // pragma once to include .hpp files onces every include
 #pragma once
@@ -9,7 +10,6 @@
 /**
  * @brief a CONSTANT for comparing double values till 4 decimal places
  * `EPSILON = 1E-5 or EPSILON = 0.00001`
- *
  */
 #define EPSILON 1E-5
 
@@ -27,212 +27,169 @@
 class MATRIX
 {
 private:
-    /***********************************
+    /*************************************
      * @var size_t MATRIX::rows
      * @brief number of rows in the matrix
-     ***********************************/
+     *************************************/
     size_t rows;
 
-    /**************************************
-     * @var size_t MATRIX::rows
+    /****************************************
+     * @var size_t MATRIX::cols
      * @brief number of columns in the matrix
-     **************************************/
+     ****************************************/
     size_t cols;
 
-    /**
+    /*******************************************************************
      * @var double** MATRIX::matrix
      * @brief `POINTER` to a dynamically allocated 2D array (matrix[row]
      * [col]) of doubles
-     */
+     *******************************************************************/
     double **matrix;
-    
 
-    /**
+    /*****************************************************************
      * @var int MATRIX::ERROR_CODE
      * @brief stores the current error status for each `MATRIX` object
-     */
+     *****************************************************************/
     int ERROR_CODE;
 
 public:
-    // ============
-    // CONSTRUCTORS
-    // ============
+    // ================================================================== //
+    // MATRIX CONSTRUCTOR
+    // ================================================================== //
+    // @file : core/constructors.hpp
+    // ================================================================== //
 
-    /***********************************************************************
-     * @brief (PARAMETERIZED CONSTRUCTOR)
-     * constructs a new `MATRIX` object
-     * initializes a `MATRIX` object with the specified number of `rows` and
-     * `columns` and all elements of the `MATRIX` are initialized to the
-     * given `InitialValue` and sets the `ERROR_CODE` of the MATRIX object
-     * to the specified `ERROR CODE`
-     *
-     * @param rows number of rows of the `MATRIX` (type required ->
-     * `size_t`)
-     * @param cols number of columns of the `MATRIX` (type required ->
-     * `size_t`)
-     * @param InitialValue initial value of the all elements of the MATRIX
-     * (type required -> `double`)
-     * @param ErrorCode ERROR_CODE of the `MATRIX` object (1 = SUCCESS)
-     * (type required -> `int`)
-     *
-     * @note this is the most complete constructor, other constructors
-     * delegate to it
-     *
-     * @file core/constructors.hpp
-     **********************************************************************/
     MATRIX(size_t rows, size_t cols, double InitialValue, int ErrorCode);
-
-    /***********************************************************************
-     * @brief  (PARAMETERIZED CONSTRUCTOR)
-     * constructs a new `MATRIX` object
-     *
-     * initializes a `MATRIX` object with the specified number of `rows` and
-     * `columns` and all elements of the `MATRIX` are initialized to the
-     * given `InitialValue` and sets the `ERROR_CODE` of the MATRIX object
-     * to `SUCCESS`
-     *
-     * @param rows number of rows of the `MATRIX` (type required ->
-     * `size_t`)
-     * @param cols number of columns of the `MATRIX` (type required ->
-     * `size_t`)
-     * @param InitialValue initial value of the all elements of the
-     * `MATRIX` (type required -> `double`)
-     *
-     * @note this constructor indirectly calls the most complete
-     * constructor i.e `MATRIX(size_t rows, size_t cols, double
-     * InitialValue, int ErrorCode)` with values `rows = rows`, `cols = cols`, `InitialValue = InitialValue` , `ERROR_CODE = SUCCESS = 1`
-     *
-     * @file core/constructors.hpp
-     **********************************************************************/
     MATRIX(size_t rows, size_t cols, double InitialValue);
-
-    /***********************************************************************
-     * @brief  (PARAMETERIZED CONSTRUCTOR)
-     * constructs a new `MATRIX` object
-     *
-     * initializes a `MATRIX` object with the specified number of `rows` and
-     * `columns` and all elements of the MATRIX are initialized to 0.0000
-     * and sets the `ERROR_CODE` of the MATRIX object to `SUCCESS`
-     *
-     * @param rows number of rows of the MATRIX (type required -> `size_t`)
-     * @param cols number of columns of the MATRIX (type required -> `size_t`)
-     *
-     * @note this constructor indirectly calls the most complete
-     * constructor i.e `MATRIX(size_t rows, size_t cols, double
-     * InitialValue, int ErrorCode)` with values `rows = rows`, `cols = cols`, `InitialValue = 0.0000` , `ERROR_CODE = SUCCESS = 1`
-     *
-     * @file core/constructors.hpp
-     **********************************************************************/
     MATRIX(size_t rows, size_t cols);
-
-    /***********************************************************************
-     * @brief (DEFAULT CONSTRUCTOR)
-     * constructs a new MATRIX object
-     *
-     * initializes a `MATRIX` object with number of `rows = 1` and
-     * number `columns = 1` and all the elements of the MATRIX are
-     * initialized to `0.0000` and sets the `ERROR_CODE = SUCCESS` of the
-     * `MATRIX` object
-     *
-     * @note this constructor indirectly calls the most complete
-     * constructor i.e `MATRIX(size_t rows, size_t cols, double
-     * InitialValue, int ErrorCode);` with values `rows = 1`, `cols = 1`, `InitialValue = 0.0000` , `ERROR_CODE = SUCCESS = 1`
-     *
-     * @file core/constructors.hpp
-     **********************************************************************/
     MATRIX();
-
-    /***********************************************************************
-     * @brief (COPY CONSTRUCTOR)
-     * constructs a new `MATRIX` object as a deep copy of from other
-     * `MATRIX` object
-     *
-     * performs a deep copy of the `MATRIX` data, ensuring that the new
-     * object has its own separate memory and does not share data with the
-     * original`MATRIX` object
-     *
-     * @param other reference to the other `MATRIX` object
-     *
-     * @file core/constructors.hpp
-     **********************************************************************/
     MATRIX(const MATRIX &other);
 
-    // ==========
-    // DESTRUCTOR
-    // ==========
+    // ================================================================== //
+    // MATRIX DESTRUCTOR
+    // ================================================================== //
+    // @file : core/destructor.hpp
+    // ================================================================== //
 
-    /***********************************************************************
-     * @brief DESTRUCTOR for the MATRIX class
-     *
-     * deallocates the dynamically allocated memory used by the
-     * `matrix` member (a `POINTER` to a 2D array of type `double`)
-     *
-     * ensures that no memory leaks occur when a `MATRIX` object is
-     * destroyed
-     *
-     * @file core/destructor.hpp
-     **********************************************************************/
     ~MATRIX();
 
-    /***********************************************************************
-     * @brief GETTER
-     * for `rows` of the current `MATRIX` object ->
-     * (RETURNS the `rows` of the current `MATRIX` object)
-     *
-     * @return size_t
-     *
-     * @file core/getters_and_setters.hpp
-     **********************************************************************/
+    // ================================================================== //
+    // MATRIX GETTER AND SETTER METHODS
+    // ================================================================== //
+    // @file : core/getters_and_setters_matrix.hpp
+    // ================================================================== //
+
     size_t GetRows() const;
-
-    /***********************************************************************
-     * @brief GETTER
-     * for `cols` of the current `MATRIX` object ->
-     * (RETURNS the `cols` of the current `MATRIX` object)
-     *
-     * @return size_t
-     *
-     *@file core/getters_and_setters.hpp
-     **********************************************************************/
     size_t GetCols() const;
-
-    /***********************************************************************
-     * @brief GETTER
-     * for the `[i][j] - th` element of `matrix` for the current `MATRIX`
-     * object
-     * (RETURNS the `[i][j] - th element` of the current `MATRIX` object)
-     *
-     * @param RowIndex 0 based index of the row (type required -> `size_t`)
-     * @param ColIndex 0 based index of the column (type required -> `size_t`)
-     * @return double value at the specified index of the matrix i.e `matrix[RowIndex][ColIndex]`
-     *
-     * @note caller should ensure valid indices, otherwise  for invalid
-     * indices the method will return `DBL_MAX`
-     *
-     * @file core/getters_and_setters.hpp
-     **********************************************************************/
     double GetMatrixElement(size_t RowIndex, size_t ColIndex) const;
-
-    /***********************************************************************
-     * @brief SETTER
-     * for the `[i][j] - th` element of `matrix` of the current `MATRIX`
-     * object
-     * (SETS the `[i][j] - th element` of the`matrix` of the  current
-     * `MATRIX` object to the `element specified`)
-     *
-     * @param RowIndex 0 based index of the row (type required -> `size_t`)
-     * @param ColIndex 0 based index of the column (type required ->
-     * `size_t`)
-     * @param element the value to be assigned at the specified index i.e `
-     * [RowIndex][ColIndex] = element` (type required -> `double`) of the
-     *
-     * @return void
-     *
-     * @note caller should ensure valid indices, otherwise for invalid
-     * indices the method will assign `matrix[RowIndex][ColIndex] = DBL_MAX`
-     * to all the elements of the `matrix`
-     *
-     * @file core/getters_and_setters.hpp
-     **********************************************************************/
     void SetMatrixElement(size_t RowIndex, size_t ColIndex, double element);
+
+    // ================================================================== //
+    // MATRIX I/O METHODS
+    // ================================================================== //
+    // @file : io/input_output_matrix.hpp
+    // ================================================================== //
+
+    void InputMatrixRowWise();
+    void InputMatrixRowWise(double *arr, size_t ArraySize);
+    void InputMatrixColumnWise();
+    void InputMatrixColumnWise(double *arr, size_t ArraySize);
+
+    // ================================================================== //
+    // MATRIX UTILITY METHODS
+    // ================================================================== //
+    // @file : core/utility_methods.hpp
+    // ================================================================== //
+
+    void PrintMatrix();
+    void RandomizeMatrixDouble(double lower_limit, double upper_limit);
+    void RandomizeMatrixInt(int lower_limit, int upper_limit);
+    bool IsEqualTo(MATRIX *other);
+    static MATRIX *GetIdentityMatrix(size_t rows, size_t cols);
+    static MATRIX *GetOnesMatrix(size_t rows, size_t cols);
+    static MATRIX *GetZeroMatrix(size_t rows, size_t cols);
+    static MATRIX *GetScalarMatrix(size_t rows, size_t cols, double k);
+    static MATRIX *GetRowMatrix(size_t rows);
+    static MATRIX *GetColumnMatrix(size_t columns);
+    static MATRIX *GetMainDiagonalMatrix(size_t rows, size_t cols, double k);
+    static MATRIX *GetAntiDiagonalMatrix(size_t rows, size_t cols, double k);
+    static MATRIX *GetUpperTriangularMatrix(size_t rows, size_t cols, double k);
+    static MATRIX *GetLowerTriangularMatrix(size_t rows, size_t cols, double k);
+
+    // ================================================================== //
+    // MATRIX DESCRIPTIVE METHODS
+    // ================================================================== //
+    // @file : descriptive/descriptive_matrix.hpp
+    // ================================================================== //
+
+    int GetMatrixZeroElementsCount();
+    int GetMatrixNonZeroElementsCount();
+    int GetMatrixPositiveElementsCount();
+    int GetMatrixNegativeElementsCount();
+    int GetMatrixTotalElementsCount();
+    double GetMatrixDensity();
+    bool IsSquareMatrix();
+    bool IsZeroMatrix();
+    bool IsOnesMatrix();
+    bool IsIdentityMatrix();
+    bool IsSkewSymmetricMatrix();
+    bool IsSymmetricMatrix();
+    bool IsInvertible();
+    void PrintMatrixDescriptiveParameters();
+
+    // ================================================================== //
+    // MATRIX STATISTICAL METHODS
+    // ================================================================== //
+    // @file : statistics/statistics_matrix.hpp
+    // ================================================================== //
+
+    MATRIX *GetMaxOfEachRow();
+    MATRIX *GetMinOfEachRow();
+    MATRIX *GetMaxOfEachColumn();
+    MATRIX *GetMinOfEachColumn();
+    MATRIX *GetSumOfEachRow();
+    MATRIX *GetSumOfEachColumn();
+    MATRIX *GetAverageOfEachRow();
+    MATRIX *GetAverageOfEachColumn();
+    double GetMatrixDiagonalSum();
+    double GetMatrixAntiDiagonalSum();
+    double GetSumOfMatrix();
+    double GetMaxOfMatrix();
+    double GetMinOfMatrix();
+    double GetAverageOfMatrix();
+    double GetRangeOfMatrix();
+    void PrintMatrixStatisticalParameters();
+
+    // ================================================================== //
+    // MATRIX TRANSFORM METHODS
+    // ================================================================== //
+    // @file : transforms/sparse_matrix.hpp
+    // @file : transforms/sparse_matrix.hpp
+    // ================================================================== //
+
+    MATRIX *GetSparseMatrix();
+    MATRIX *GetTransposeMatrix();
 };
+
+// ================================================================== //
+// MATRIX ARITHMETIC METHODS
+// ================================================================== //
+// @file : arithmetic/add_matrix.hpp
+// @file : arithmetic/subtract_matrix.hpp
+// @file : arithmetic/multiply_matrix.hpp
+// @file : arithmetic/multiply_matrix_by_a_scalar.hpp
+// @file : arithmetic/divide_matrix_by_a_scalar.hpp
+// ================================================================== //
+
+MATRIX *AddMatrix(MATRIX *A, MATRIX *B);
+MATRIX *AddAScalarToMatrix(MATRIX *A, double k);
+
+MATRIX *SubtractMatrix(MATRIX *A, MATRIX *B);
+MATRIX *SubtractAScalarFromMatrix(MATRIX *A, double k);
+
+MATRIX *MultiplyMatrix(MATRIX *A, MATRIX *B);
+MATRIX *MultiplyMatrixByAScalar(MATRIX *A, double k);
+MATRIX *MultiplyMatrixElementWise(MATRIX *A, MATRIX *B);
+
+MATRIX *DivideMatrixElementWise(MATRIX *A, MATRIX *B);
+MATRIX *DivideMatrixByAScalar(MATRIX *A, double k);
