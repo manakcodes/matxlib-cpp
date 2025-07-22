@@ -85,25 +85,16 @@ public:
     void SetMatrixElement(size_t RowIndex, size_t ColIndex, double element);
 
     // ================================================================== //
-    // MATRIX I/O METHODS
-    // ================================================================== //
-    // @file : io/input_output_matrix.hpp
-    // ================================================================== //
-
-    void InputMatrixRowWise();
-    void InputMatrixRowWise(double *arr, size_t ArraySize);
-    void InputMatrixColumnWise();
-    void InputMatrixColumnWise(double *arr, size_t ArraySize);
-
-    // ================================================================== //
     // MATRIX UTILITY METHODS
     // ================================================================== //
-    // @file : core/utility_methods.hpp
+    // @file : utility/utility_methods.hpp
     // ================================================================== //
 
+    static MATRIX *INVALID_MATRIX(int ERROR_CODE);
     void PrintMatrix();
     void RandomizeMatrixDouble(double lower_limit, double upper_limit);
     void RandomizeMatrixInt(int lower_limit, int upper_limit);
+    static bool HasSameOrder(MATRIX *A, MATRIX *B);
     bool IsEqualTo(MATRIX *other);
     static MATRIX *GetIdentityMatrix(size_t rows, size_t cols);
     static MATRIX *GetOnesMatrix(size_t rows, size_t cols);
@@ -115,6 +106,17 @@ public:
     static MATRIX *GetAntiDiagonalMatrix(size_t rows, size_t cols, double k);
     static MATRIX *GetUpperTriangularMatrix(size_t rows, size_t cols, double k);
     static MATRIX *GetLowerTriangularMatrix(size_t rows, size_t cols, double k);
+
+    // ================================================================== //
+    // MATRIX I/O METHODS
+    // ================================================================== //
+    // @file : io/input_output_matrix.hpp
+    // ================================================================== //
+
+    void InputMatrixRowWise();
+    void InputMatrixRowWise(double *arr, size_t ArraySize);
+    void InputMatrixColumnWise();
+    void InputMatrixColumnWise(double *arr, size_t ArraySize);
 
     // ================================================================== //
     // MATRIX DESCRIPTIVE METHODS
