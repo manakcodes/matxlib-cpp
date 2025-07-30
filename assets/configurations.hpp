@@ -1,0 +1,16 @@
+#pragma once
+#include "../matxlib.hpp"
+
+#define MATXLIB_CPP_VERSION "1.0.0"
+
+#define MATXLIB_CPP_AUTHOR "manak"
+
+#define MATXLIB_CPP_GITHUB "https://github.com/manakcodes/matxlib-cpp"
+
+#define MATXLIB_CPP_NAME "matxlib-cpp"
+
+#define MATXLIB_CPP_DESCRIPTION "A LIGHTWEIGHT, MINIMAL C++ LIBRARY FOR MATRIX ABSTRACTIONS, ARITHMETIC AND ANALYTICAL UTILITIES."
+
+#define MATXLIB_CPP_NOTE "USE WITH CAUTION * LEARNING PURPOSES * NOT PERFORMANCE TUNED."
+
+#define CONST_WIDTH 75
