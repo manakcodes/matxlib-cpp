@@ -1,5 +1,6 @@
 #include "class.hpp"
 #include "error_codes.hpp"
+#include "../../assets/details.hpp"
 #pragma once
 
 /***********************************************************************
@@ -35,6 +36,7 @@ MATRIX::MATRIX(size_t rows, size_t cols, double InitialValue, int ERROR_CODE) : 
             this->matrix[i][j] = InitialValue;
         }
     }
+    configs::details();
 }
 
 /***********************************************************************
