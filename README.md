@@ -1,19 +1,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 <p align="center">
-  <img src="assets/matxlib-cpp.jpg" alt="matxlib-cpp" width=/>
+  <img src="assets/matxlib-cpp.jpg" alt="matxlib-cpp"/>
 </p>
-<!-- [Logo](assets/matxlib-cpp.jpg -->
 
 # `matxlib-cpp`
 
-## A lightweight, minimal C++ library for matrix abstractions, arithmetic, and analytical utilities.
+> A lightweight, minimal C++ library for matrix abstractions, arithmetic, and analytical utilities.
 
 ## 📦 About
 
-`matxlib-cpp` is a **header-only matrix library** built in C++. It's written from scratch as a personal project to understand how such libraries work under the hood. It supports basic matrix creation, manipulation, and arithmetic, descriptive and statistical operations.
+`matxlib-cpp` is a **header-only matrix library** built in `C++`. It's written from scratch as a personal project to understand how such libraries work under the hood. It supports basic matrix creation, manipulation, and arithmetic, descriptive and statistical operations.
 
-⚠️ **Note**: This library is made for learning purposes and doesn't guarantee high performance or full numerical stability like professional libraries.
+⚠️ **NOTE** : This library is made for learning purposes and doesn't guarantee high performance or full numerical stability like professional libraries.
 
 ---
 
@@ -23,7 +22,7 @@
 - ➕ Arithmetic Operations: element-wise and scalar operations (add, subtract, multiply, divide)
 - 📊 Descriptive Statistics: mean, min, max, sum, and other aggregations
 - 🔁 Transformations: transpose, sparse matrix representation, etc.
-- 🧠 Utility Functions: clean utility wrappers and macros
+- 🧠 Utility Functions: clean utility wrappers, macros and ERROR_CODES.
 - 🖨️ Input/Output: easy matrix display and input
 - 📂 Modular Design: every operation is split into clear, reusable headers
 - ⚙️ Self-contained: no external dependencies
@@ -36,19 +35,19 @@
 - Make (optional) if using the provided Makefile
 - Git to clone the repository (or download ZIP manually)
 
-No external libraries or dependencies are required — it’s built with standard C++ only.
+No external libraries or dependencies are required — it’s built with standard `C++` only.
 
 ---
 
 ## 🏗️ Tools And Tech Used:
 
 <p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" width="40" alt="g++" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="40" alt="Git" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="40" alt="GitHub" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" width="40" alt="Bash" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="40" alt="VS Code" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xcode/xcode-original.svg" width="40" alt="Xcode" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" width="60" alt="g++" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="60" alt="Git" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="60" alt="GitHub" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" width="60" alt="Bash" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="60" alt="VS Code" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xcode/xcode-original.svg" width="60" alt="Xcode" />
 </p>
 
 ---
@@ -57,15 +56,21 @@ No external libraries or dependencies are required — it’s built with standar
 
 1. Open your terminal (or command prompt).
 
-2. Navigate to the directory where you want to place the project (e.g., Desktop).  
-   `cd ~/Desktop`
+2. Navigate to the directory where you want to place the project (e.g., Desktop).
 
-3. Paste the following command in the terminal (or command prompt):  
-   ` git clone https://github.com/manakcodes/matxlib-cpp.git`
+   ```bash
+   cd ~/Desktop
+   ```
 
-4. Include the following header in your C++ program to use the library
+3. Paste the following command in the terminal (or command prompt):
 
-   ```cpp (or adjust the path accordingly).
+   ```bash
+   git clone https://github.com/manakcodes/matxlib-cpp.git
+   ```
+
+4. Include the following header in your C++ program to use the library (or adjust the path accordingly).
+
+   ```cpp
    #include "matxlib-cpp/matxlib.hpp"
    ```
 
@@ -73,9 +78,29 @@ No external libraries or dependencies are required — it’s built with standar
 
 ---
 
-## 🪪 LICENSE
+## 🐙 Every Time You Start a New Project:
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/manakcodes/matxlib-cpp/blob/c6b3246dca12c712395c963e9df49b016b3fdd8b/LICENSE) file for details.
+After the first-time setup, follow these steps each time you use the library in a new C++ project:
+
+1. Make sure your project file (e.g., your_file.cpp) is in the same directory level or you correctly reference the path to the library (or adjust the path accordingly).
+
+2. Include the following header:
+
+   ```cpp
+   #include "matxlib-cpp/matxlib.hpp"
+   ```
+
+3. Compile with g++ or your preferred compiler. If needed, link any required flags or paths:
+
+   ```bash
+   g++ main.cpp -o main
+   ```
+
+   ```bash
+   ./main
+   ```
+
+4. You’re good to go !
 
 ---
 
@@ -95,7 +120,7 @@ int main() {
 }
 ```
 
-```zsh
+```bash
 
 +------------+------------+------------+
 | 5.0000     | 1.0000     | 6.0000     |
@@ -159,5 +184,11 @@ I built `matxlib-cpp` simply because I wanted to create my own matrix library fr
 ├── README.md  # <-- you are here :)
 └── test.cpp  # <-- tester file
 
-10 directories, 29 files
+10 directories, 28 files
 ```
+
+---
+
+## 🪪 LICENSE
+
+This project is licensed under the MIT License - see [LICENSE](https://github.com/manakcodes/matxlib-cpp/blob/c6b3246dca12c712395c963e9df49b016b3fdd8b/LICENSE) for details.
